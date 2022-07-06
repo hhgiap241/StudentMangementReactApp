@@ -1,14 +1,13 @@
 
 import './App.css';
-import BookEditForm from "./InformationForm";
+import NumberCount from "./NumberCount";
+
 
 function App() {
-    const book = {
-        title: "Chemistry"
-    }
+    console.log('App re-render');
     return (
-        <div className="wrapper">
-            <BookEditForm book = {book}/>
+        <div className="App">
+            <NumberCount/>
         </div>
     );
 }
