@@ -1,18 +1,29 @@
 
 import './App.css';
-import RandomGift from "./RandomGift";
+import RadioButton from "./RadioButton";
+import CheckBox from "./CheckBox";
 
+
+const courses = [
+    {
+        id: 1,
+        name: 'HTML, CSS'
+    },
+    {
+        id: 2,
+        name: 'JavaScript'
+    },
+    {
+        id: 3,
+        name: 'ReactJS'
+    }
+];
 
 function App() {
-    console.log('App re-render');
-    const gifts = [
-        'CPU',
-        'RAM',
-        'Keyboard'
-    ];
     return (
         <div className="App">
-            <RandomGift gifts = {gifts}/>
+            <RadioButton courses = {courses}/>
+            <CheckBox courses = {courses}/>
         </div>
     );
 }
