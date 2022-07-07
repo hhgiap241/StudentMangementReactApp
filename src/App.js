@@ -1,7 +1,8 @@
 
 import './App.css';
-import RadioButton from "./RadioButton";
-import CheckBox from "./CheckBox";
+import JobInput from "./JobInput";
+import JobItem from "./JobItem";
+import {useState} from "react";
 
 
 const courses = [
@@ -20,10 +21,24 @@ const courses = [
 ];
 
 function App() {
+    const [jobs, setJobs] = useState(() => {
+        const storageJobs = JSON.parse(localStorage.getItem('jobs'));
+        return storageJobs ?? [];
+    })
+    const handleButtonAddJob = (event) => {
+        // jobs.push(event.target.value);
+        const job = event.target.value;
+        setJobs((prev) => {
+                const newJobs = [...prev, job];
+                localStorage.setItem('jobs', JSON.stringify(newJobs));
+                return newJobs;
+            }
+        );
+    }
     return (
         <div className="App">
-            <RadioButton courses = {courses}/>
-            <CheckBox courses = {courses}/>
+            <JobInput onValueChange = {handleButtonAddJob}/>
+            <JobItem jobs = {jobs}/>
         </div>
     );
 }

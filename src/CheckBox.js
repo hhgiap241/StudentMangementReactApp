@@ -16,8 +16,16 @@ const CheckBox = (props) => {
             }
         )
     }
+
     const handleButtonClick = () => {
-        console.log({id: checked})
+        let reduce = checked.reduce((prev, curr) => {
+            return [...prev, courses[curr - 1]]
+        }, []);
+        console.log(reduce);
+
+        // checked.forEach(item => {
+        //     console.log(courses[item - 1]);
+        // })
     }
     return (
         <React.Fragment>
