@@ -1,13 +1,18 @@
 
 import './App.css';
-import NumberCount from "./NumberCount";
+import RandomGift from "./RandomGift";
 
 
 function App() {
     console.log('App re-render');
+    const gifts = [
+        'CPU',
+        'RAM',
+        'Keyboard'
+    ];
     return (
         <div className="App">
-            <NumberCount/>
+            <RandomGift gifts = {gifts}/>
         </div>
     );
 }
