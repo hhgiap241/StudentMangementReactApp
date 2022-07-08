@@ -1,6 +1,7 @@
 import './App.css';
 
-import CountDown from "./CountDown";
+
+import {CountDownWithStopBtn} from "./CountDownWithStopBtn";
 
 
 
@@ -9,7 +10,7 @@ function App() {
 
     return (
         <div className="App">
-            <CountDown/>
+            <CountDownWithStopBtn/>
         </div>
     );
 }
