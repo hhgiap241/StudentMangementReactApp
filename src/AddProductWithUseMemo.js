@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from "react";
+import React, {useMemo, useRef, useState} from "react";
 import {Button} from "react-bootstrap";
 
 const AddProductWithUseMemo = () => {
@@ -6,6 +6,7 @@ const AddProductWithUseMemo = () => {
     const [price, setPrice] = useState('');
     const [products, setProducts] = useState([]);
 
+    const ref = useRef();
 
     const handleAddProduct = () => {
         setProducts(prevState => [...prevState,
@@ -13,6 +14,9 @@ const AddProductWithUseMemo = () => {
                 name: name,
                 price: +price
             }]);
+        setName('');
+        setPrice('');
+        ref.current.focus();
     }
     const total = useMemo(() => {
         const reduce = products.reduce((prev, curr) => {
@@ -26,6 +30,7 @@ const AddProductWithUseMemo = () => {
 
             <div>
                 <input
+                    ref={ref}
                     placeholder='input product name'
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -41,12 +46,13 @@ const AddProductWithUseMemo = () => {
                 <br/>
                 <Button
                     onClick={handleAddProduct}
-                >Submit</Button>
+                >Submit
+                </Button>
                 <h1>Total: {total}</h1>
             </div>
             <div>
                 <ul>
-                    {products.map(product => <li key = {product.name}>{product.name} - {product.price}$</li>)}
+                    {products.map(product => <li key={product.name}>{product.name} - {product.price}$</li>)}
                 </ul>
             </div>
         </>

@@ -1,5 +1,6 @@
 import './App.css';
-import AddProductWithUseMemo from "./AddProductWithUseMemo";
+import TodoAppWithReducer from "./TodoAppWithReducer";
+
 
 
 
@@ -7,7 +8,7 @@ function App() {
 
     return (
         <div className="App">
-            <AddProductWithUseMemo />
+            <TodoAppWithReducer />
         </div>
     );
 }
